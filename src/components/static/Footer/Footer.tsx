@@ -39,7 +39,9 @@ function Footer() {
           component="a" 
           href="https://brasil.generation.org" 
           target="_blank"
-          style={{ color: "white", textDecoration: 'none'}}>
+          // color="GrayText"
+          style={{ color: "white" }}
+          >
           brasil.generation.org
         </Typography>
       </Box>
