@@ -1,8 +1,18 @@
-import Home from "./pages/home/Home"
+import Footer from "./components/static/Footer/Footer"
+import Navbar from "./components/static/Navbar/Navbar"
+import Home from "./pages/Home/Home"
+
+import './App.css'
 
 function App() {
   return (
-    <Home />
+    <>
+      <Navbar />
+      <div style={{ minHeight: '100vh' }}>
+        <Home />
+      </div>
+      <Footer />
+    </>
   )
 }
 
