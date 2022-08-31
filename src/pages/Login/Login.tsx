@@ -7,6 +7,8 @@ import useLocalStorage from "react-use-localstorage"
 import UserLogin from "../../models/UserLogin"
 import { login } from "../../services/Services"
 
+import './Login.css'
+
 function Login() {
 
     let navigate = useNavigate()
@@ -122,12 +124,7 @@ function Login() {
                 </Box>
             </Grid>
 
-            <Grid item xs={6} style={{
-                backgroundImage: `url(https://i.imgur.com/d5bMdDJ.jpg)`,
-                backgroundRepeat: 'no-repeat', width: '100vh', minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center'
-            }}>
-
-            </Grid>
+            <Grid xs={6} className='imagem'></Grid>
         </Grid>
     )
 }

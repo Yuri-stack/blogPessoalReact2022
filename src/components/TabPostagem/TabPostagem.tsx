@@ -2,7 +2,7 @@ import { SyntheticEvent, useState } from "react";
 import { TabContext, TabPanel } from "@mui/lab";
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 
-import ListaPostagem from "../ListaPostagem/ListaPostagem";
+import ListaPostagem from "../../pages/ListaPostagem/ListaPostagem";
 
 function TabPostagem() {
     const [tab, setTab] = useState<string>('1')
@@ -35,11 +35,11 @@ function TabPostagem() {
 
             </Box>
 
-            <TabPanel value="1" style={{ backgroundColor: '#ccc' }}>
+            <TabPanel value="1" style={{ backgroundColor: 'white' }}>
                 <ListaPostagem />
             </TabPanel>
 
-            <TabPanel value="2" style={{ backgroundColor: '#ccc' }}>
+            <TabPanel value="2" style={{ backgroundColor: 'white' }}>
                 <Typography
                     component="h5"
                     variant="h5"

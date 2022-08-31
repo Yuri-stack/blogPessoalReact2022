@@ -1,7 +1,7 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 
-function ListaTema() {
+export function Temas() {
     return (
         <Box m={2} >
             <Card variant="outlined">
@@ -36,5 +36,3 @@ function ListaTema() {
         </Box>
     )
 }
-
-export default ListaTema

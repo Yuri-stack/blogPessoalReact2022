@@ -1,7 +1,7 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 
-function ListaPostagem() {
+function Postagens() {
     return (
         <Box m={2} >
             <Card variant="outlined">
@@ -43,4 +43,4 @@ function ListaPostagem() {
     )
 }
 
-export default ListaPostagem
+export default Postagens

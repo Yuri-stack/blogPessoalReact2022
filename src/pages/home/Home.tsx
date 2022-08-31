@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography } from '@mui/material'
-import TabPostagem from '../../components/posts/TabPostagem/TabPostagem'
+import TabPostagem from '../../components/TabPostagem/TabPostagem'
 
 import './Home.css'
 
@@ -50,10 +50,11 @@ function Home() {
             </Grid>
 
             <Grid item xs={6}>
-                <img 
-                    src="https://i.imgur.com/H88yIo2.png" 
+                <img
+                    src="https://imgur.com/4qzZQ5c.png"
                     alt="Três pessoas sentadas conversando"
-                    width="500px" height="500px" />
+                    width="500px" height="500px"
+                    />
             </Grid>
 
             <Grid item xs={12}>

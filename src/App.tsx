@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import Footer from "./components/static/Footer/Footer"
-import Navbar from "./components/static/Navbar/Navbar"
+import Footer from "./components/Footer/Footer"
+import Navbar from "./components/Navbar/Navbar"
 
 import Login from "./pages/Login/Login"
 import Home from "./pages/Home/Home"
 import Cadastro from "./pages/Cadastro/Cadastro"
-
-import ListaTema from "./components/themes/ListaTema/ListaTema"
+import ListaTema from "./pages/ListaTemas/ListaTemas"
+import ListaPostagem from "./pages/ListaPostagem/ListaPostagem"
 
 import './App.css'
 
@@ -29,7 +29,7 @@ function App() {
 
           <Route path="/temas" element={<ListaTema />} />
 
-          <Route path="/postagens" element={<ListaTema />} />
+          <Route path="/postagens" element={<ListaPostagem />} />
         </Routes>
 
       </div>
