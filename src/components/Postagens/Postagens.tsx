@@ -1,7 +1,12 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
+import Postagem from "../../models/Post"
 
-function Postagens() {
+interface PostagensProps{
+    post: Postagem
+}
+
+function Postagens({ post }: PostagensProps) {
     return (
         <Box m={2} >
             <Card variant="outlined">

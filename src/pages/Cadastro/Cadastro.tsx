@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { Box, Button, Grid, TextField, Typography } from "@mui/material"
 import { Link, useNavigate } from "react-router-dom"
 
-import User from "../../models/User"
+import User from "../../models/Usuario"
 import { cadastrarUsuario } from "../../services/Services"
 
 import "./Cadastro.css"

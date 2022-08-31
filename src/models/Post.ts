@@ -1,13 +1,12 @@
-import Theme from "./Theme"
-import User from "./User"
-
-interface Post{
+import Tema from "./Tema"
+import Usuario from "./Usuario"
+interface Postagem{
     id: number
     titulo: string
     texto: string
     data: string
-    tema: Theme
-    usuario: User
+    tema: Tema
+    usuario: Usuario
 }
 
-export default Post
+export default Postagem

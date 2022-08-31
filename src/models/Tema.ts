@@ -1,6 +1,6 @@
-interface Theme{
+interface Tema{
     id: number
     descricao: string
 }
 
-export default Theme
+export default Tema

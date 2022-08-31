@@ -1,4 +1,4 @@
-interface User{
+interface Usuario{
     id: number
     nome: string
     usuario: string
@@ -6,4 +6,4 @@ interface User{
     foto: string
 }
 
-export default User
+export default Usuario
