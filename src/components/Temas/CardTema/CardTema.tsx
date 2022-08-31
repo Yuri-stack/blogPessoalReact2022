@@ -18,17 +18,19 @@ export function CardTema({ tema }: CardTemaProps) {
                         { tema.descricao }
                     </Typography>
                 </CardContent>
+
                 <CardActions>
                     <Box display="flex" justifyContent="center" mb={1.5} >
 
-                        <Link to={``}>
+                        <Link to={`/formularioTema/${ tema.id }`}>
                             <Box mx={1}>
-                                <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                <Button variant="contained" size='small' color="primary" >
                                     Atualizar
                                 </Button>
                             </Box>
                         </Link>
-                        <Link to={``}>
+
+                        <Link to={`/deletarTema/${ tema.id }`}>
                             <Box mx={1}>
                                 <Button variant="contained" size='small' color="secondary">
                                     Deletar
