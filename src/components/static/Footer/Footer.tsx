@@ -33,7 +33,7 @@ function Footer() {
       </Box>
 
       <Box display="flex" flexDirection="column" alignItems="center">
-        <Typography style={{ color: "white" }}>© 2020 Copyright:</Typography>
+        <Typography style={{ color: "white" }}>© 2022 Copyright:</Typography>
 
         <Typography 
           component="a" 

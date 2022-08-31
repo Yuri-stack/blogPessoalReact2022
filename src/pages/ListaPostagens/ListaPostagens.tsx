@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import useLocalStorage from "react-use-localstorage"
-import Postagens from "../../components/Postagens/Postagens"
+
 import Postagem from "../../models/Post"
+import { CardPostagem } from "../../components/Postagens/CardPostagem/CardPostagem"
 import { buscar } from "../../services/Services"
 
-function ListaPostagem() {
+function ListaPostagens() {
     const [posts, setPosts] = useState<Postagem[]>([])
     const [token, setToken] = useLocalStorage('token')
 
@@ -34,11 +35,11 @@ function ListaPostagem() {
         <>
             {
                 posts.map(post => (
-                    <Postagens key={post.id} post={post} />
+                    <CardPostagem key={post.id} post={post} />
                 ))
             }
         </>
     )
 }
 
-export default ListaPostagem
+export default ListaPostagens

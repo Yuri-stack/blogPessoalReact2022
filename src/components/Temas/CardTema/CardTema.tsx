@@ -1,12 +1,12 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
-import Tema from "../../models/Tema"
+import Tema from "../../../models/Tema"
 
-interface TemasProps{
+interface CardTemaProps{
     tema: Tema
 }
 
-export function Temas({ tema }: TemasProps) {
+export function CardTema({ tema }: CardTemaProps) {
     return (
         <Box m={2} >
             <Card variant="outlined">

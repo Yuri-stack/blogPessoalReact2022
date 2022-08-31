@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import useLocalStorage from "react-use-localstorage"
 
 import Tema from "../../models/Tema"
-import { Temas } from "../../components/Temas/Temas"
+import { CardTema } from "../../components/Temas/CardTema/CardTema"
 import { buscar } from "../../services/Services"
 
 function ListaTema() {
@@ -33,7 +33,7 @@ function ListaTema() {
         <>
             {
                 temas.map(tema => (
-                    <Temas key={tema.id} tema={tema} />
+                    <CardTema key={tema.id} tema={tema} />
                 ))}
         </>
     )

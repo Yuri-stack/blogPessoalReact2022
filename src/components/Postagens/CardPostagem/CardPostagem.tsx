@@ -1,12 +1,12 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
-import Postagem from "../../models/Post"
+import Postagem from "../../../models/Post"
 
-interface PostagensProps {
+interface CardPostagemProps {
     post: Postagem
 }
 
-function Postagens({ post }: PostagensProps) {
+export function CardPostagem({ post }: CardPostagemProps) {
     return (
         <Box m={2}>
             <Card variant="outlined">
@@ -51,5 +51,3 @@ function Postagens({ post }: PostagensProps) {
         </Box>
     )
 }
-
-export default Postagens

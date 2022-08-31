@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography } from '@mui/material'
-import TabPostagem from '../../components/TabPostagem/TabPostagem'
+import TabPostagem from '../../components/Postagens/TabPostagem/TabPostagem'
 
 import './Home.css'
 
