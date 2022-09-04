@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { Box, Button, Grid, TextField, Typography } from "@mui/material"
 import { Link, useNavigate } from "react-router-dom"
 
-import User from "../../models/Usuario"
+import Usuario from "../../models/Usuario"
 import { cadastrarUsuario } from "../../services/Services"
 
 import "./Cadastro.css"
@@ -13,7 +13,7 @@ function Cadastro() {
 
   const [confirmarSenha, setConfirmarSenha] = useState<String>("")
 
-  const [user, setUser] = useState<User>({
+  const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: '',
     usuario: '',
@@ -21,7 +21,7 @@ function Cadastro() {
     foto: ''
   })
 
-  const [userResult, setUserResult] = useState<User>({
+  const [userResult, setUserResult] = useState<Usuario>({
     id: 0,
     nome: '',
     usuario: '',
@@ -30,7 +30,7 @@ function Cadastro() {
   })
 
   useEffect(() => {
-    if (userResult.id !== 0) {
+    if (userResult?.id !== 0) {
       navigate("/login")
     }
   }, [userResult])
@@ -40,8 +40,8 @@ function Cadastro() {
   }
 
   function updateState(e: ChangeEvent<HTMLInputElement>) {
-    setUser({
-      ...user,
+    setUsuario({
+      ...usuario,
       [e.target.name]: e.target.value
     })
   }
@@ -49,10 +49,10 @@ function Cadastro() {
   async function cadastrar(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    if (confirmarSenha === user.senha && user.senha.length >= 8) {
+    if (confirmarSenha === usuario.senha && usuario.senha.length >= 8) {
 
       try {
-        await cadastrarUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUserResult)
         alert('Usuario cadastrado com sucesso')
 
       } catch (error) {
@@ -62,7 +62,7 @@ function Cadastro() {
 
     } else {
       alert('Dados inconsistentes. Verifique as informações de cadastro.')
-      setUser({ ...user, senha: "" })
+      setUsuario({ ...usuario, senha: "" })
       setConfirmarSenha("")
     }
   }
@@ -88,7 +88,7 @@ function Cadastro() {
             </Typography>
 
             <TextField
-              value={user.nome}
+              value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='nome' label='Nome' variant='outlined'
               name='nome' margin='normal'
@@ -96,7 +96,7 @@ function Cadastro() {
               fullWidth
             />
             <TextField
-              value={user.usuario}
+              value={usuario.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='usuario' label='Usuario' variant='outlined'
               name='usuario' margin='normal'
@@ -104,7 +104,7 @@ function Cadastro() {
               fullWidth
             />
             <TextField
-              value={user.foto}
+              value={usuario.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='foto' label='Foto' variant='outlined'
               name='foto' margin='normal'
@@ -112,7 +112,7 @@ function Cadastro() {
               fullWidth
             />
             <TextField
-              value={user.senha}
+              value={usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='senha' label='Senha' variant='outlined'
               name='senha' margin='normal' type='password'

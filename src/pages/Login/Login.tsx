@@ -15,14 +15,7 @@ function Login() {
 
     const [token, setToken] = useLocalStorage('token')
 
-    const [userLogin, setUserLogin] = useState<UserLogin>({
-        id: 0,
-        nome: "",
-        usuario: "",
-        senha: "",
-        foto: "",
-        token: ""
-    })
+    const [userLogin, setUserLogin] = useState<UserLogin>({} as UserLogin)
 
     useEffect(() => {
         if (token !== "") {
