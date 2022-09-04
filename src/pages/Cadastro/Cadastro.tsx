@@ -56,7 +56,7 @@ function Cadastro() {
         alert('Usuario cadastrado com sucesso')
 
       } catch (error) {
-        console.log(`Error: ${error}`)
+        console.log(`${error}`)
         alert("Erro ao cadastrar o Usuário")
       }
 
