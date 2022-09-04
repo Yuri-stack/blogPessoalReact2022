@@ -39,7 +39,7 @@ function Cadastro() {
     setConfirmarSenha(e.target.value)
   }
 
-  function updatedState(e: ChangeEvent<HTMLInputElement>) {
+  function updateState(e: ChangeEvent<HTMLInputElement>) {
     setUser({
       ...user,
       [e.target.name]: e.target.value
@@ -89,7 +89,7 @@ function Cadastro() {
 
             <TextField
               value={user.nome}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedState(e)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='nome' label='Nome' variant='outlined'
               name='nome' margin='normal'
               required
@@ -97,7 +97,7 @@ function Cadastro() {
             />
             <TextField
               value={user.usuario}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedState(e)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='usuario' label='Usuario' variant='outlined'
               name='usuario' margin='normal'
               required
@@ -105,7 +105,7 @@ function Cadastro() {
             />
             <TextField
               value={user.foto}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedState(e)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='foto' label='Foto' variant='outlined'
               name='foto' margin='normal'
               required
@@ -113,7 +113,7 @@ function Cadastro() {
             />
             <TextField
               value={user.senha}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedState(e)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
               id='senha' label='Senha' variant='outlined'
               name='senha' margin='normal' type='password'
               required

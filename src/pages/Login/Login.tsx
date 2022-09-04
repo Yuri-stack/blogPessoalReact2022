@@ -30,7 +30,7 @@ function Login() {
         }
     }, [token])
 
-    function updatedState(e: ChangeEvent<HTMLInputElement>) {
+    function updateState(e: ChangeEvent<HTMLInputElement>) {
         setUserLogin({
             ...userLogin,
             [e.target.name]: e.target.value
@@ -69,7 +69,7 @@ function Login() {
 
                         <TextField
                             value={userLogin.usuario}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedState(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                             id='usuario'
                             label='Usuário'
                             variant='outlined'
@@ -81,7 +81,7 @@ function Login() {
 
                         <TextField
                             value={userLogin.senha}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedState(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
                             id='senha'
                             label='Senha'
                             variant='outlined'

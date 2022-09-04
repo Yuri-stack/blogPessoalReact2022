@@ -1,7 +1,20 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import useLocalStorage from "react-use-localstorage"
 
 function Navbar() {
+
+  let history = useNavigate()
+
+  const [token, setToken] = useLocalStorage('token')
+
+  function logout() {
+    setToken('')
+
+    alert("Usuário deslogado")
+    history("/login")
+  }
+
   return (
     <AppBar position="static">
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
@@ -33,11 +46,12 @@ function Navbar() {
             </Button>
           </Link>
 
-          <Link to="/">
-            <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
-              Logout
-            </Button>
-          </Link>
+          <Button 
+            style={{ display: 'block', color: 'white', margin: '16px 0' }} 
+            onClick={ logout }
+          >
+            Logout
+          </Button>
 
         </Box>
       </Toolbar>
