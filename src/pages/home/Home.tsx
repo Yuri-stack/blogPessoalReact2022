@@ -1,4 +1,5 @@
 import { Box, Button, Grid, Typography } from '@mui/material'
+import ModalPostagem from '../../components/Postagens/ModalPostagem/ModalPostagem'
 import TabPostagem from '../../components/Postagens/TabPostagem/TabPostagem'
 
 import './Home.css'
@@ -35,7 +36,9 @@ function Home() {
                 </Typography>
 
                 <Box display="flex" justifyContent="center">
-                    <Box marginX={1}></Box>
+                    <Box marginX={1}>
+                        {/* <ModalPostagem /> */}
+                    </Box>
 
                     <Button
                         variant="outlined"

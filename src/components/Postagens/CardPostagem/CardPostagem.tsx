@@ -1,6 +1,6 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
-import Postagem from "../../../models/Post"
+import Postagem from "../../../models/Postagem"
 
 interface CardPostagemProps {
     post: Postagem
@@ -31,14 +31,14 @@ export function CardPostagem({ post }: CardPostagemProps) {
                 <CardActions>
                     <Box display="flex" justifyContent="center" mb={1.5}>
 
-                        <Link to={``} className="text-decorator-none" >
+                        <Link to={`/formularioPostagem/${post.id}`}>
                             <Box mx={1}>
                                 <Button variant="contained" className="marginLeft" size='small' color="primary" >
                                     Atualizar
                                 </Button>
                             </Box>
                         </Link>
-                        <Link to={``} className="text-decorator-none">
+                        <Link to={`/deletarPostagem/${post.id}`}>
                             <Box mx={1}>
                                 <Button variant="contained" size='small' color="secondary">
                                     Deletar

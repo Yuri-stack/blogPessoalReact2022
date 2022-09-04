@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import useLocalStorage from "react-use-localstorage"
 
-import Postagem from "../../models/Post"
+import Postagem from "../../models/Postagem"
 import { CardPostagem } from "../../components/Postagens/CardPostagem/CardPostagem"
 import { buscar } from "../../services/Services"
 

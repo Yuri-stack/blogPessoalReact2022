@@ -10,6 +10,8 @@ import ListaTema from "./pages/ListaTemas/ListaTemas"
 import ListaPostagens from "./pages/ListaPostagens/ListaPostagens"
 import DeletarTema from "./components/Temas/DeletarTema/DeletarTema"
 import FormularioTema from "./components/Temas/FormularioTema/FormularioTema"
+import DeletarPostagem from "./components/Postagens/DeletarPostagem/DeletarPostagem"
+import FormularioPostagem from "./components/Postagens/FormularioPostagem/FormularioPostagem"
 
 import './App.css'
 
@@ -38,6 +40,12 @@ function App() {
           <Route path="/formularioTema/:id" element={<FormularioTema />} />
 
           <Route path="/deletarTema/:id" element={<DeletarTema />} />
+
+          <Route path="/formularioPostagem" element={<FormularioPostagem />} />
+
+          <Route path="/formularioPostagem/:id" element={<FormularioPostagem />} />
+
+          <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
         </Routes>
 
       </div>

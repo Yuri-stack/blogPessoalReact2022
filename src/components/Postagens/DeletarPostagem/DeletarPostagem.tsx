@@ -3,10 +3,10 @@ import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/ma
 import { useNavigate, useParams } from "react-router-dom"
 import useLocalStorage from "react-use-localstorage"
 
-import Tema from "../../../models/Tema"
+import Postagem from "../../../models/Postagem"
 import { buscar, deletar } from "../../../services/Services"
 
-function DeletarTema() {
+function DeletarPostagem() {
 
     let navigate = useNavigate()
 
@@ -14,10 +14,10 @@ function DeletarTema() {
 
     const [token, setToken] = useLocalStorage('token')
 
-    const [tema, setTema] = useState<Tema>()
+    const [post, setPosts] = useState<Postagem>()
 
     async function findById(id: string) {
-        await buscar(`/temas/${id}`, setTema, {
+        await buscar(`/postagens/${id}`, setPosts, {
             headers: {
                 'Authorization': token
             }
@@ -39,13 +39,13 @@ function DeletarTema() {
 
     async function confirm() {
         try {
-            await deletar(`/temas/${id}`, {
+            await deletar(`/postagens/${id}`, {
                 headers: {
                     'Authorization': token
                 }
             });
 
-            alert('Tema deletado com sucesso')
+            alert('Postagem deletada com sucesso')
 
         } catch (error) {
             console.log(`${error}`)
@@ -56,7 +56,7 @@ function DeletarTema() {
     }
 
     function goBack() {
-        navigate('/temas')
+        navigate('/postagens')
     }
 
     return (
@@ -65,10 +65,10 @@ function DeletarTema() {
                 <CardContent>
                     <Box justifyContent="center">
                         <Typography color="textSecondary" gutterBottom>
-                            Deseja deletar o Tema:
+                            Deseja deletar a Postagem:
                         </Typography>
                         <Typography color="textSecondary">
-                            {tema?.descricao}
+                            {post?.titulo}
                         </Typography>
                     </Box>
                 </CardContent>
@@ -103,4 +103,4 @@ function DeletarTema() {
     )
 }
 
-export default DeletarTema
+export default DeletarPostagem
