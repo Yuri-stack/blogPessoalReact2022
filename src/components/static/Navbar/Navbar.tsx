@@ -12,52 +12,61 @@ function Navbar() {
 
   function logout() {
     handleLogout()
-    
+
     alert("Usuário deslogado")
     navigate('/login')
   }
 
+  let navbar
+
+  if (user.token !== "") {
+    navbar =
+      <AppBar position="static">
+        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="h6">Blog Pessoal</Typography>
+
+          <Box style={{ display: "flex" }}>
+
+            <Link to="/home">
+              <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
+                Home
+              </Button>
+            </Link>
+
+            <Link to="/postagens">
+              <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
+                Postagens
+              </Button>
+            </Link>
+
+            <Link to="/temas">
+              <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
+                Temas
+              </Button>
+            </Link>
+
+            <Link to="/formularioTema">
+              <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
+                Cadastrar Tema
+              </Button>
+            </Link>
+
+            <Button
+              style={{ display: 'block', color: 'white', margin: '16px 0' }}
+              onClick={logout}
+            >
+              Logout
+            </Button>
+
+          </Box>
+        </Toolbar>
+      </AppBar>
+  }
+
   return (
-    <AppBar position="static">
-      <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h6">Blog Pessoal</Typography>
-
-        <Box style={{ display: "flex" }}>
-
-          <Link to="/home">
-            <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
-              Home
-            </Button>
-          </Link>
-
-          <Link to="/postagens">
-            <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
-              Postagens
-            </Button>
-          </Link>
-
-          <Link to="/temas">
-            <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
-              Temas
-            </Button>
-          </Link>
-
-          <Link to="/formularioTema">
-            <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
-              Cadastrar Tema
-            </Button>
-          </Link>
-
-          <Button 
-            style={{ display: 'block', color: 'white', margin: '16px 0' }} 
-            onClick={ logout }
-          >
-            Logout
-          </Button>
-
-        </Box>
-      </Toolbar>
-    </AppBar>
+    <>
+      { navbar }
+    </>
   )
 }
 
