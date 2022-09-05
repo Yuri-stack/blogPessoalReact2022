@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react"
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { useNavigate, useParams } from "react-router-dom"
+import { toast } from 'react-toastify';
 
 import Postagem from "../../../models/Postagem"
 import { AuthContext } from "../../../contexts/AuthContext"
@@ -15,7 +16,7 @@ function DeletarPostagem() {
     const [post, setPosts] = useState<Postagem>()
 
     const { user } = useContext(AuthContext)
-    
+
     const token = user.token
 
     async function findById(id: string) {
@@ -28,7 +29,17 @@ function DeletarPostagem() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.info('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
+            
             navigate('/login')
         }
     }, [token])

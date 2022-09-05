@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
+import { toast } from 'react-toastify';
 import UserLogin from '../models/UserLogin'
 import { login } from '../services/Services'
 
@@ -28,11 +29,30 @@ export function AuthProvider({ children }: AuthProviderProps) {
     async function handleLogin(userLogin: UserLogin) {
         try {
             await login(`/usuarios/logar`, userLogin, setUser)
-            alert("Usuário logado com sucesso")
+
+            toast.success('Usuário logado com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
 
         } catch (error) {
             console.log(error)
-            alert("Dados do usuário inconsistentes")
+            toast.error('Dados do usuário inconsistentes', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+              })
         }
     }
 

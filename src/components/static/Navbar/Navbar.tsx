@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from 'react-toastify';
 
 import { AuthContext } from "../../../contexts/AuthContext"
 
@@ -13,7 +14,17 @@ function Navbar() {
   function logout() {
     handleLogout()
 
-    alert("Usuário deslogado")
+    toast.info('Usuário deslogado', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+  })
+
     navigate('/login')
   }
 

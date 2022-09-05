@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Footer from "./components/static/Footer/Footer"
 import Navbar from "./components/static/Navbar/Navbar"
 
+import { ToastContainer } from "react-toastify"
 import { AuthProvider } from "./contexts/AuthContext"
 
 import Home from "./pages/Home/Home"
@@ -16,10 +17,13 @@ import DeletarPostagem from "./components/Postagens/DeletarPostagem/DeletarPosta
 import FormularioPostagem from "./components/Postagens/FormularioPostagem/FormularioPostagem"
 
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <AuthProvider>
+      <ToastContainer />
+
       <BrowserRouter>
         <Navbar />
 

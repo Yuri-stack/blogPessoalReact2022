@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState, useContext } from "react"
 import { Box, Button, TextField, Typography } from "@mui/material"
 import { useNavigate, useParams } from "react-router-dom"
+import { toast } from 'react-toastify';
 
 import Tema from "../../../models/Tema"
 import { AuthContext } from "../../../contexts/AuthContext"
@@ -13,7 +14,7 @@ function FormularioTema() {
     const { id } = useParams<{ id: string }>()
 
     const { user } = useContext(AuthContext)
-    
+
     const token = user.token
 
     const [tema, setTema] = useState<Tema>({
@@ -31,7 +32,17 @@ function FormularioTema() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.info('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
+
             navigate('/login')
         }
     }, [token])
@@ -49,7 +60,7 @@ function FormularioTema() {
         })
     }
 
-    function goBack(){
+    function goBack() {
         navigate('/temas')
     }
 
@@ -64,11 +75,30 @@ function FormularioTema() {
                         'Authorization': token
                     }
                 })
-                alert('Tema atualizado com sucesso')
+
+                toast.success('Tema atualizado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                })
 
             } catch (error) {
-                console.log(`${error}`)
-                alert("Erro, por favor verifique a quantidade mínima de caracteres")
+                console.log(error)
+                toast.error('Erro, por favor verifique a quantidade mínima de caracteres', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                })
             }
 
         } else {
@@ -79,11 +109,29 @@ function FormularioTema() {
                     }
                 })
 
-                alert("Tema cadastrado com sucesso")
-                
+                toast.success('Tema cadastrado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                })
+
             } catch (error) {
-                console.log(`${error}`)
-                alert("Erro, por favor verifique a quantidade mínima de caracteres")
+                console.log(error)
+                toast.error('Erro, por favor verifique a quantidade mínima de caracteres', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                })
             }
         }
 
@@ -92,7 +140,7 @@ function FormularioTema() {
 
     return (
         <Box paddingX={50} paddingY={8}>
-            <form onSubmit={ record }>
+            <form onSubmit={record}>
                 <Typography
                     component="h1"
                     variant="h3"

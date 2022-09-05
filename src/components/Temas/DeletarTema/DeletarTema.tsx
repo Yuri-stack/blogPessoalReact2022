@@ -1,12 +1,13 @@
 import { useEffect, useState, useContext } from "react"
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { useNavigate, useParams } from "react-router-dom"
+import { toast } from 'react-toastify';
 
 import Tema from "../../../models/Tema"
 import { AuthContext } from "../../../contexts/AuthContext"
 import { buscar, deletar } from "../../../services/Services"
 
-function DeletarTema() { 
+function DeletarTema() {
 
     let navigate = useNavigate()
 
@@ -28,7 +29,17 @@ function DeletarTema() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.info('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
+
             navigate('/login')
         }
     }, [token])
@@ -47,11 +58,29 @@ function DeletarTema() {
                 }
             });
 
-            alert('Tema deletado com sucesso')
+            toast.success('Tema deletado com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
 
         } catch (error) {
-            console.log(`${error}`)
-            alert('Erro ao deletar')
+            console.log(error)
+            toast.error('Erro, por favor verifique a quantidade mínima de caracteres', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
         }
 
         goBack()
