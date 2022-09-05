@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import useLocalStorage from "react-use-localstorage"
 
 import Postagem from "../../models/Postagem"
-import { CardPostagem } from "../../components/Postagens/CardPostagem/CardPostagem"
 import { buscar } from "../../services/Services"
+import { AuthContext } from "../../contexts/AuthContext"
+import { CardPostagem } from "../../components/Postagens/CardPostagem/CardPostagem"
 
 function ListaPostagens() {
     const [posts, setPosts] = useState<Postagem[]>([])
-    const [token, setToken] = useLocalStorage('token')
 
-    let history = useNavigate()
+    const { user } = useContext(AuthContext)
+    const token = user.token
+
+    let navigate = useNavigate()
 
     async function getPost() {
         await buscar("/postagens", setPosts, {
@@ -23,7 +25,7 @@ function ListaPostagens() {
     useEffect(() => {
         if (token === '') {
             alert('Você precisa estar logado')
-            history('/')
+            navigate('/')
         }
     }, [token])
 

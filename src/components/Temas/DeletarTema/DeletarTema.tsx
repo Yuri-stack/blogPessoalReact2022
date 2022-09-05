@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material"
 import { useNavigate, useParams } from "react-router-dom"
-import useLocalStorage from "react-use-localstorage"
 
 import Tema from "../../../models/Tema"
+import { AuthContext } from "../../../contexts/AuthContext"
 import { buscar, deletar } from "../../../services/Services"
 
-function DeletarTema() {
+function DeletarTema() { 
 
     let navigate = useNavigate()
 
     const { id } = useParams<{ id: string }>()
 
-    const [token, setToken] = useLocalStorage('token')
-
     const [tema, setTema] = useState<Tema>()
+
+    const { user } = useContext(AuthContext)
+
+    const token = user.token
 
     async function findById(id: string) {
         await buscar(`/temas/${id}`, setTema, {

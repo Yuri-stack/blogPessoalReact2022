@@ -1,18 +1,20 @@
+import { useContext } from "react"
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
 import { Link, useNavigate } from "react-router-dom"
-import useLocalStorage from "react-use-localstorage"
+
+import { AuthContext } from "../../../contexts/AuthContext"
 
 function Navbar() {
 
-  let history = useNavigate()
+  let navigate = useNavigate()
 
-  const [token, setToken] = useLocalStorage('token')
+  const { user, handleLogout } = useContext(AuthContext)
 
   function logout() {
-    setToken('')
-
+    handleLogout()
+    
     alert("Usuário deslogado")
-    history("/login")
+    navigate('/login')
   }
 
   return (

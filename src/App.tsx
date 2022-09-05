@@ -19,7 +19,7 @@ import './App.css'
 
 function App() {
   return (
-    // <AuthProvider>
+    <AuthProvider>
       <BrowserRouter>
         <Navbar />
 
@@ -55,7 +55,7 @@ function App() {
 
         <Footer />
       </ BrowserRouter>
-    // </ AuthProvider>
+    </ AuthProvider>
   )
 }
 

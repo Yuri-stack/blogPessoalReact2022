@@ -1,9 +1,9 @@
-import { ChangeEvent, useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useState, useContext } from "react"
 import { Box, Button, TextField, Typography } from "@mui/material"
 import { useNavigate, useParams } from "react-router-dom"
-import useLocalStorage from "react-use-localstorage"
 
 import Tema from "../../../models/Tema"
+import { AuthContext } from "../../../contexts/AuthContext"
 import { atualizar, buscar, cadastrar } from "../../../services/Services"
 
 function FormularioTema() {
@@ -12,7 +12,9 @@ function FormularioTema() {
 
     const { id } = useParams<{ id: string }>()
 
-    const [token, setToken] = useLocalStorage('token')
+    const { user } = useContext(AuthContext)
+    
+    const token = user.token
 
     const [tema, setTema] = useState<Tema>({
         id: 0,

@@ -1,11 +1,9 @@
-import { ChangeEvent, useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useState, useContext } from "react"
 import { Box, Button, Grid, TextField, Typography } from "@mui/material"
 import { Link, useNavigate } from "react-router-dom"
 
-import useLocalStorage from "react-use-localstorage"
-
+import { AuthContext } from "../../contexts/AuthContext"
 import UserLogin from "../../models/UserLogin"
-import { login } from "../../services/Services"
 
 import './Login.css'
 
@@ -13,15 +11,15 @@ function Login() {
 
     let navigate = useNavigate()
 
-    const [token, setToken] = useLocalStorage('token')
-
     const [userLogin, setUserLogin] = useState<UserLogin>({} as UserLogin)
 
+    const { user, handleLogin } = useContext(AuthContext)
+
     useEffect(() => {
-        if (token !== "") {
+        if (user.token !== "") {
             navigate('/home')
         }
-    }, [token])
+    }, [user])
 
     function updateState(e: ChangeEvent<HTMLInputElement>) {
         setUserLogin({
@@ -30,16 +28,9 @@ function Login() {
         })
     }
 
-    async function logar(e: ChangeEvent<HTMLFormElement>) {
+    function logar(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-
-        try {
-            await login(`/usuarios/logar`, userLogin, setToken)
-            alert("Usuário logado com sucesso")
-
-        } catch (error) {
-            alert("Dados do usuário inconsistentes")
-        }
+        handleLogin(userLogin)
     }
 
     return (
