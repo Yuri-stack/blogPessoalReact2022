@@ -27,6 +27,14 @@ export function CardPostagem({ post }: CardPostagemProps) {
                         {post.tema?.descricao}
                     </Typography>
 
+                    <Typography variant="body2" component="p">
+                        Postado por: {post.usuario?.nome}
+                    </Typography>
+
+                    <Typography variant="body2" component="p">
+                        Data: {new Intl.DateTimeFormat('pt-BR').format(new Date(post.data))}
+                    </Typography>
+
                 </CardContent>
                 <CardActions>
                     <Box display="flex" justifyContent="center" mb={1.5}>

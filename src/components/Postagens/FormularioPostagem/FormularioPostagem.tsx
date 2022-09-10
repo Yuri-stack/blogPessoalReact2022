@@ -7,6 +7,7 @@ import Tema from "../../../models/Tema"
 import Postagem from "../../../models/Postagem"
 import { AuthContext } from "../../../contexts/AuthContext"
 import { atualizar, buscar, cadastrar } from "../../../services/Services"
+import Usuario from "../../../models/Usuario";
 
 function FormularioPostagem() {
 
@@ -32,6 +33,14 @@ function FormularioPostagem() {
     data: '',
     tema: null,
     usuario: null
+  })
+
+  const [usuario, setUsuario] = useState<Usuario>({
+    id: user.id,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: ''
   })
 
   async function findById(id: string) {
@@ -85,7 +94,8 @@ function FormularioPostagem() {
     setPost({
       ...post,
       [e.target.name]: e.target.value,
-      tema: tema
+      tema: tema,
+      usuario: usuario
     })
   }
 
@@ -165,6 +175,8 @@ function FormularioPostagem() {
           progress: undefined,
         })
       }
+
+      goBack()
     }
   }
 

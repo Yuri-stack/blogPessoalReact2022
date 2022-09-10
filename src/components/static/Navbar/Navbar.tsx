@@ -62,6 +62,12 @@ function Navbar() {
               </Button>
             </Link>
 
+            <Link to="/perfil">
+              <Button style={{ display: 'block', color: 'white', margin: '16px 0' }}>
+                Perfil
+              </Button>
+            </Link>
+
             <Button
               style={{ display: 'block', color: 'white', margin: '16px 0' }}
               onClick={logout}

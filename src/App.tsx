@@ -8,6 +8,7 @@ import { AuthProvider } from "./contexts/AuthContext"
 
 import Home from "./pages/Home/Home"
 import Login from "./pages/Login/Login"
+import Perfil from "./pages/Perfil/Perfil"
 import Cadastro from "./pages/Cadastro/Cadastro"
 import ListaTema from "./pages/ListaTemas/ListaTemas"
 import ListaPostagens from "./pages/ListaPostagens/ListaPostagens"
@@ -41,6 +42,8 @@ function App() {
             <Route path="/temas" element={<ListaTema />} />
 
             <Route path="/postagens" element={<ListaPostagens />} />
+
+            <Route path="/perfil" element={<Perfil />} />
 
             <Route path="/formularioTema" element={<FormularioTema />} />
 

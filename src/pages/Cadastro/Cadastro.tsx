@@ -91,7 +91,7 @@ function Cadastro() {
   return (
     <Grid container>
 
-      <Grid item xs={6} className='imagemCadastro' />
+      <Grid item xs={6} className='imagem-cadastro' />
 
       <Grid item xs={6}>
 
