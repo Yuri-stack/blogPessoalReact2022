@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import FormularioPostagem from '../FormularioPostagem/FormularioPostagem';
 
@@ -12,19 +11,9 @@ function ModalPostagem() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const [modalStyle] = useState({
-        transform: 'translate(-50%, -50%)',
-    })
-    
-    const bodyModal = (
-        <div>
-            <FormularioPostagem />
-        </div>
-    )
-
     return (
         <>
-            <Button onClick={handleOpen}>Open modal</Button>
+            <Button variant="outlined" className='btnModal' onClick={handleOpen}>Nova Postagem</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -32,7 +21,7 @@ function ModalPostagem() {
                 aria-describedby="modal-modal-description"
             >
                 <Box className="modal">
-                    { bodyModal }
+                    <FormularioPostagem />
                 </Box>
             </Modal>
         </>

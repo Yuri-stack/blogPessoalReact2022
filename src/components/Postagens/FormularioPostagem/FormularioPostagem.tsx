@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState, useContext } from "react"
-import { Box, Button, FormControl, FormHelperText, MenuItem, InputLabel, Select, TextField, Typography } from "@mui/material"
+import { Button, FormControl, FormHelperText, MenuItem, InputLabel, Select, TextField, Typography, Container } from "@mui/material"
 import { useNavigate, useParams } from "react-router-dom"
 import { toast } from 'react-toastify';
 
@@ -181,7 +181,7 @@ function FormularioPostagem() {
   }
 
   return (
-    <Box paddingX={50} paddingY={8}>
+    <Container maxWidth="sm" style={{ marginTop: '64px' }}>
       <form onSubmit={record}>
         <Typography
           component="h1"
@@ -190,14 +190,14 @@ function FormularioPostagem() {
           align="center"
         >
           Formulário de Postagem
-        </Typography>
+        </Typography> 
 
         <TextField
           value={post.titulo}
           onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
           id="titulo" label="Título" name="titulo" variant="outlined"
           placeholder="Digite no mínimo 5 caracteres"
-          margin="dense" fullWidth required
+          margin="normal" fullWidth required
         />
 
         <TextField
@@ -237,7 +237,7 @@ function FormularioPostagem() {
           </Button>
         </FormControl>
       </form>
-    </Box >
+    </Container >
   )
 }
 

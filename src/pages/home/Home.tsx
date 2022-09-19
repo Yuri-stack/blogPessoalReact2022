@@ -37,7 +37,7 @@ function Home() {
 
                 <Box display="flex" justifyContent="center">
                     <Box marginX={1}>
-                        {/* <ModalPostagem /> */}
+                        <ModalPostagem />
                     </Box>
 
                     <Button
